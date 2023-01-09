@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Relay Control Webpage</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Control Webpage</h1>
+        <input type="button" class="button1" value="ON" onclick="on()"><br>
+        <input type="button" class="button2" value="OFF" onclick="off()">
+    </div>
+
+    <script type="text/javascript">
+        function on() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    alert("릴레이를 켰습니다.");
+                }
+            }
+            xhr.open('get', 'http://192.168.0.50/on', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send();
+        }
+        function off() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    alert("릴레이를 껐습니다.");
+                }
+            }
+            xhr.open('get', 'http://192.168.0.50/off', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
+
+    body {
+        margin: 0;
+        background-color: #ccf0ff;
+    }
+
+    * {
+        font-family: 'DynaPuff', cursive;
+    }
+
+    h1 {
+        letter-spacing: 1px;
+        font-size: 5rem;
+        margin: 10;
+    }
+
+    .container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button1 {
+        text-align: center;
+        width: 350px;
+        height: 150px;
+        padding: 5px;
+        background-color: #a6de87;
+        border: 12px solid #4ca62e;
+        border-radius: 40px;
+        color: white;
+        font-size: 4rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        outline: none;
+        margin: 10px;
+    }
+
+    .button1:hover {
+        background: #4ca62e;
+        border-color: #a6de87;
+    }
+
+    .button2 {
+        text-align: center;
+        width: 350px;
+        height: 150px;
+        padding: 5px;
+        background-color: #e68e8e;
+        border: 12px solid #d43b5c;
+        border-radius: 40px;
+        color: white;
+        font-size: 4rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        outline: none;
+        margin: 10px;
+    }
+
+    .button2:hover {
+        background: #d43b5c;
+        border-color: #e68e8e;
+    }
+</style>
