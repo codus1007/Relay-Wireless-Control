@@ -4,7 +4,7 @@
 #include <SoftwareSerial.h>
 
 const char* ssid = "LeeF";
-const char* password = "dnflwlq4";
+const char* password = "";
 
 IPAddress ip (192, 168, 0, 50);
 IPAddress gw (192, 168, 0, 1);
